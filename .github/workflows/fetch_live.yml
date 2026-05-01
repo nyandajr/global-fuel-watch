@@ -1,38 +1,30 @@
-name: Fetch Live Crude & FX
-
+name: Fetch Live Crude and FX
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: "*/10 * * * *"
   workflow_dispatch:
-
 jobs:
   fetch:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-
+          python-version: "3.11"
       - name: Install dependencies
         run: pip install requests pandas
-
       - name: Fetch live data
         run: python fetch_live.py
         env:
           ALPHA_VANTAGE_KEY: ${{ secrets.ALPHA_VANTAGE_KEY }}
-
       - name: Health check
         run: python health_check.py
-
       - name: Commit and push
         run: |
           git config user.name "nyandajr"
           git config user.email "nyandajr@users.noreply.github.com"
           git add data/live/ data/global_latest.json logs/
-          git diff --staged --quiet || git commit -m "live: crude+fx $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git diff --staged --quiet || git commit -m "live: update"
           git push
