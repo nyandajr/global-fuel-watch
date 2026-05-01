@@ -32,4 +32,4 @@ jobs:
           git add data/live/ data/global_latest.json logs/
           git diff --staged --quiet || git commit -m "live: crude+fx $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
-          git push
+          git push --force-with-lease
