@@ -1,4 +1,6 @@
 name: Fetch Live Crude and FX
+permissions:
+  contents: write
 on:
   schedule:
     - cron: "*/10 * * * *"
