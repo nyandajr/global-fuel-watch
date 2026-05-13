@@ -406,3 +406,6 @@ timestamp,commodity,price_usd,date,unit
 2026-05-12 23:41:33,brent,118.26,2026-05-01,USD/barrel
 2026-05-12 23:41:33,wti,109.76,2026-05-04,USD/barrel
 2026-05-13 00:12:57,brent,118.26,2026-05-01,USD/barrel
+2026-05-13 01:16:52,brent,118.26,2026-05-01,USD/barrel
+2026-05-13 01:16:52,wti,109.76,2026-05-04,USD/barrel
+2026-05-13 01:16:52,natural_gas,2.67,2026-05-04,USD/MMBtu
