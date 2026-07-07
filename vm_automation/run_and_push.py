@@ -3,6 +3,7 @@ own crontab, not GitHub Actions (same migration already proven on
 hormuz-strait-monitor, ea-financial-tracker, and dsn-anomaly-tracker).
 """
 
+import argparse
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -49,8 +50,19 @@ def git_commit_and_push():
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--fx", action="store_true")
+    parser.add_argument("--crude", action="store_true")
+    args = parser.parse_args()
+
     sync_with_remote()
-    run(sys.executable, "fetch_live.py")
+
+    fetch_args = [sys.executable, "fetch_live.py"]
+    if args.fx:
+        fetch_args.append("--fx")
+    if args.crude:
+        fetch_args.append("--crude")
+    run(*fetch_args)
 
     health = run(sys.executable, "health_check.py", check=False)
     if health.returncode != 0:

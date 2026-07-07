@@ -78,28 +78,47 @@ def fetch_fx():
     print(f"  [FX] {records} pairs fetched.")
     return records
 
-def update_global_latest(fx_count):
+def update_global_latest(commodities_count, fx_count):
     with open("data/global_latest.json", "w") as f:
         json.dump({
             "last_updated_utc": TIMESTAMP,
-            "commodities_fetched": 3,
+            "commodities_fetched": commodities_count,
             "fx_pairs_fetched": fx_count,
         }, f, indent=2)
     print("  global_latest.json updated.")
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--fx", action="store_true")
+    parser.add_argument("--crude", action="store_true")
+    args = parser.parse_args()
+
+    # Alpha Vantage free tier is capped at 25 requests/day; 3 commodities
+    # every 20 min would need 216/day. Crude runs on its own, much rarer
+    # cadence -- see vm_automation/run_and_push.py and crontab.
+    run_fx = args.fx or not (args.fx or args.crude)
+    run_crude = args.crude or not (args.fx or args.crude)
+
     print(f"\n{'='*50}")
     print(f"global-fuel-watch | fetch_live.py")
     print(f"Timestamp: {TIMESTAMP}")
     print(f"{'='*50}\n")
 
-    total  = fetch_commodity("BRENT", "brent")
-    total += fetch_commodity("WTI", "wti")
-    total += fetch_commodity("NATURAL_GAS", "natural_gas")
-    fx_count = fetch_fx()
-    total += fx_count
+    total = 0
+    commodities_count = 0
+    if run_crude:
+        commodities_count  = fetch_commodity("BRENT", "brent")
+        commodities_count += fetch_commodity("WTI", "wti")
+        commodities_count += fetch_commodity("NATURAL_GAS", "natural_gas")
+        total += commodities_count
 
-    update_global_latest(fx_count)
+    fx_count = 0
+    if run_fx:
+        fx_count = fetch_fx()
+        total += fx_count
+
+    update_global_latest(commodities_count, fx_count)
     status = "success" if total > 0 else "failed"
     log_uptime(status, total)
 
