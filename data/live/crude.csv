@@ -1762,3 +1762,5 @@ timestamp,commodity,price_usd,date,unit
 2026-07-08 16:07:07,brent,71.59,2026-06-29,USD/barrel
 2026-07-08 16:07:07,wti,71.87,2026-06-29,USD/barrel
 2026-07-08 16:07:07,natural_gas,3.33,2026-06-29,USD/MMBtu
+2026-07-08 20:07:05,brent,71.59,2026-06-29,USD/barrel
+2026-07-08 20:07:05,natural_gas,3.33,2026-06-29,USD/MMBtu
