@@ -1937,3 +1937,5 @@ timestamp,commodity,price_usd,date,unit
 2026-07-31 08:07:04,brent,91.82,2026-07-27,USD/barrel
 2026-07-31 12:07:05,brent,91.82,2026-07-27,USD/barrel
 2026-07-31 12:07:05,wti,84.25,2026-07-27,USD/barrel
+2026-07-31 16:07:05,brent,91.82,2026-07-27,USD/barrel
+2026-07-31 16:07:05,wti,84.25,2026-07-27,USD/barrel
