@@ -1963,3 +1963,5 @@ timestamp,commodity,price_usd,date,unit
 2026-08-03 12:07:05,brent,91.82,2026-07-27,USD/barrel
 2026-08-03 20:07:05,brent,91.82,2026-07-27,USD/barrel
 2026-08-03 20:07:05,natural_gas,2.63,2026-07-27,USD/MMBtu
+2026-08-04 08:07:05,brent,91.82,2026-07-27,USD/barrel
+2026-08-04 08:07:05,natural_gas,2.63,2026-07-27,USD/MMBtu
