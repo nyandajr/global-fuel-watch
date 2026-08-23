@@ -1,4 +1,3 @@
-cat > .gitignore << 'EOF'
 # Python
 __pycache__/
 *.py[cod]
@@ -26,4 +25,3 @@ logs/*.log
 # Large data files
 *.pkl
 *.h5
-EOF
