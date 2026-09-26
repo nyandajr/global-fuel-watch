@@ -40,13 +40,25 @@ exactly which one and when it was verified):
 | 🇬🇧 UK | Petrol, Diesel | [gov.uk weekly road fuel prices](https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics) |
 | 🇺🇸 US | Petrol, Diesel | [EIA weekly retail prices](https://www.eia.gov/petroleum/gasdiesel/) |
 | 🇫🇷 France | Petrol, Diesel | [prix-carburants.gouv.fr](https://www.prix-carburants.gouv.fr) — real-time, every filling station in France |
+| 🇨🇦 Canada | Petrol | [Statistics Canada](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810000101) — national monthly average |
+| 🇧🇷 Brazil | Petrol, Diesel | [ANP open data](https://www.gov.br/anp) — rolling 4-week, per-station |
+| 🇲🇽 Mexico | Petrol, Diesel | Government public price-reporting service — per-station |
+| 🇮🇹 Italy | Petrol, Diesel, LPG | [MIMIT Osservatorio Prezzi Carburanti](https://www.mimit.gov.it) — ~93k stations, daily |
+| 🇳🇴 Norway | Petrol, Diesel | [Statistics Norway (SSB)](https://www.ssb.no/en/statbank/table/09654) — national monthly average |
+| 🇯🇵 Japan | Petrol, Diesel | [METI/ANRE weekly survey](https://www.enecho.meti.go.jp) — has real but occasionally flaky bot-protection, may skip a cycle |
 
-**Not yet implemented** (17 countries): Canada, Brazil, Mexico, Germany,
-Italy, Netherlands, Norway, Saudi Arabia, UAE, Kuwait, Iran, India,
-China, Japan, South Korea, Indonesia, Philippines. `config.py` lists a
-candidate source for each, but those are unverified starting points, not
-confirmed working endpoints — being worked through one verified source
-at a time rather than assumed.
+**Confirmed no public source exists** (8 countries) — subsidized or
+administratively-fixed prices published only as press releases/PDFs, no
+machine-readable feed found after real investigation: Saudi Arabia, UAE,
+Kuwait, Iran, India, China, Indonesia, Philippines.
+
+**Real source exists, needs a free API key neither of us can register
+unsupervised** (2 countries): Germany ([Tankerkönig](https://creativecommons.tankerkoenig.de/)), South Korea ([Opinet](https://www.opinet.co.kr/user/custapi/openApiNew.do)) — both instant/auto-approved signups, just need a human to do them.
+
+**Real source exists, currently unreachable from this network** (1
+country): Netherlands (CBS StatLine) — confirmed blocked/timing out on
+repeated attempts, not a dead endpoint necessarily, worth retrying from
+a different network.
 
 ---
 
