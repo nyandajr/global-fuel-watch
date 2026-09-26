@@ -27,6 +27,12 @@ SCRAPERS = {
     "UK_beis": "UK",
     "US_eia": "US",
     "FR_dgec": "FR",
+    "CA_nrcan": "CA",
+    "BR_anp": "BR",
+    "MX_cre": "MX",
+    "IT_mase": "IT",
+    "NO_np": "NO",
+    "JP_meti": "JP",
 }
 
 
