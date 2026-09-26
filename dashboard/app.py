@@ -1,10 +1,12 @@
-import streamlit as st
+import glob
+import json
+import os
+from datetime import datetime
+
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import json
-from datetime import datetime
-import os
+import streamlit as st
 
 st.set_page_config(
     page_title="Global Fuel Watch",
@@ -37,9 +39,37 @@ def load_latest():
             return json.load(f)
     return {}
 
+@st.cache_data(ttl=600)
+def load_pump_prices():
+    """One row per country with its latest known price per fuel type,
+    from data/pump_prices/<CODE>.csv -- only countries that actually have
+    a scraper get a file here, so this is naturally the honest subset,
+    not the full 20-country wishlist.
+    """
+    rows = []
+    for path in sorted(glob.glob("data/pump_prices/*.csv")):
+        country = os.path.splitext(os.path.basename(path))[0]
+        try:
+            df = pd.read_csv(path)
+        except pd.errors.EmptyDataError:
+            continue
+        if df.empty:
+            continue
+        latest_ts = df["timestamp"].max()
+        for _, r in df[df["timestamp"] == latest_ts].iterrows():
+            rows.append(r.to_dict() | {"country_code": country})
+    return pd.DataFrame(rows)
+
 crude_df  = load_crude()
 fx_df     = load_fx()
 latest    = load_latest()
+pump_df   = load_pump_prices()
+
+COUNTRY_LABELS = {
+    "UK": "United Kingdom 🇬🇧", "US": "United States 🇺🇸", "FR": "France 🇫🇷",
+    "CA": "Canada 🇨🇦", "BR": "Brazil 🇧🇷", "MX": "Mexico 🇲🇽",
+    "IT": "Italy 🇮🇹", "NO": "Norway 🇳🇴", "JP": "Japan 🇯🇵",
+}
 
 # ── Header ─────────────────────────────────────────────────────────────────
 
@@ -73,6 +103,48 @@ if not crude_df.empty:
                 value=f"${price:.2f}",
                 delta=unit
             )
+
+st.divider()
+
+# ── Retail pump prices ──────────────────────────────────────────────────────
+
+st.subheader("⛽ Retail Pump Prices, by Country")
+st.caption(
+    "Only countries with a real, verified government or statistical-agency "
+    "source are shown here — see each country's `source` for exactly which "
+    "one. Not every country tracks every fuel type; only what its real "
+    "source actually publishes is shown."
+)
+
+if not pump_df.empty:
+    pump_df["label"] = pump_df["country_code"].map(COUNTRY_LABELS).fillna(pump_df["country_code"])
+    fuel_tabs = st.tabs(sorted(pump_df["fuel_type"].unique()))
+    for tab, fuel in zip(fuel_tabs, sorted(pump_df["fuel_type"].unique())):
+        with tab:
+            sub = pump_df[pump_df["fuel_type"] == fuel].copy()
+            sub["price"] = pd.to_numeric(sub["price"], errors="coerce")
+            fig = px.bar(
+                sub.sort_values("price"),
+                x="price", y="label", orientation="h",
+                color="currency",
+                text=sub.apply(lambda r: f"{r['price']:.3f} {r['unit']}", axis=1),
+                labels={"price": "Price (local currency)", "label": "Country"},
+            )
+            fig.update_layout(
+                height=max(220, 60 * len(sub)),
+                plot_bgcolor="rgba(0,0,0,0)",
+                paper_bgcolor="rgba(0,0,0,0)",
+                font_color="white",
+                showlegend=False,
+            )
+            st.plotly_chart(fig, use_container_width=True)
+            st.caption(
+                "Sources: " + " · ".join(
+                    f"{row['label']} ({row['date']})" for _, row in sub.iterrows()
+                )
+            )
+else:
+    st.info("No pump price data yet — the VM's cron job writes this every 4 hours.")
 
 st.divider()
 
@@ -134,21 +206,38 @@ st.divider()
 
 # ── Coverage ────────────────────────────────────────────────────────────────
 
-st.subheader("🌐 Global Coverage")
+st.subheader("🌐 Coverage — What's Actually Real")
+st.caption(
+    "This used to list all 20 countries as if every one had real retail "
+    "price data. It didn't — 19 of the 21 per-country scrapers were empty "
+    "placeholders. Fixed here to show the honest current state instead."
+)
 
-coverage = {
-    "Americas":    ["USA 🇺🇸", "Canada 🇨🇦", "Brazil 🇧🇷", "Mexico 🇲🇽"],
-    "Europe":      ["UK 🇬🇧", "Germany 🇩🇪", "France 🇫🇷", "Italy 🇮🇹", "Netherlands 🇳🇱", "Norway 🇳🇴"],
-    "Middle East": ["Saudi Arabia 🇸🇦", "UAE 🇦🇪", "Kuwait 🇰🇼", "Iran 🇮🇷"],
-    "Asia":        ["India 🇮🇳", "China 🇨🇳", "Japan 🇯🇵", "South Korea 🇰🇷", "Indonesia 🇮🇩", "Philippines 🇵🇭"],
-}
+live_countries = sorted(pump_df["country_code"].unique()) if not pump_df.empty else []
+no_source = ["SA", "UAE", "KW", "IR", "IN", "CN", "ID", "PH"]
+needs_key = ["DE", "KR"]
+unreachable = ["NL"]
 
-cols = st.columns(4)
-for i, (region, countries) in enumerate(coverage.items()):
-    with cols[i]:
-        st.markdown(f"**{region}**")
-        for c in countries:
-            st.markdown(f"- {c}")
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    st.markdown(f"**✅ Live now ({len(live_countries)})**")
+    for c in live_countries:
+        st.markdown(f"- {COUNTRY_LABELS.get(c, c)}")
+with col2:
+    st.markdown(f"**❌ No public source exists ({len(no_source)})**")
+    st.caption("Subsidized/administered prices, no machine-readable feed found")
+    for c in no_source:
+        st.markdown(f"- {c}")
+with col3:
+    st.markdown(f"**🔑 Needs a free API key ({len(needs_key)})**")
+    st.caption("Real source, instant signup, not completed yet")
+    for c in needs_key:
+        st.markdown(f"- {c}")
+with col4:
+    st.markdown(f"**🌐 Currently unreachable ({len(unreachable)})**")
+    st.caption("Real source, blocked from this network")
+    for c in unreachable:
+        st.markdown(f"- {c}")
 
 st.divider()
-st.caption("Built by nyandajr | global-fuel-watch | Data: Alpha Vantage, Open Exchange Rates")
+st.caption("Built by nyandajr | global-fuel-watch | Crude/FX: Alpha Vantage | Pump prices: government/statistical-agency sources, see README")
