@@ -8,13 +8,13 @@ FUEL_TYPES = [
 ]
 
 COUNTRIES = {
-    "US": {"name": "United States", "region": "Americas", "currency": "USD", "fx_pair": "USD/USD", "fuels": ["petrol", "diesel", "kerosene", "lpg", "natural_gas", "heating_oil"], "source": "https://www.eia.gov/petroleum/gasdiesel/", "frequency": "weekly"},
+    "US": {"name": "United States", "region": "Americas", "currency": "USD", "fx_pair": "USD/USD", "fuels": ["petrol", "diesel"], "source": "https://www.eia.gov/petroleum/gasdiesel/xls/pswrgvwall.xls", "frequency": "weekly", "verified": "2026-09-26"},
     "CA": {"name": "Canada", "region": "Americas", "currency": "CAD", "fx_pair": "USD/CAD", "fuels": ["petrol", "diesel", "lpg", "natural_gas", "heating_oil"], "source": "https://natural-resources.canada.ca/energy/fuel-prices/4593", "frequency": "weekly"},
     "BR": {"name": "Brazil", "region": "Americas", "currency": "BRL", "fx_pair": "USD/BRL", "fuels": ["petrol", "diesel", "lpg", "natural_gas"], "source": "https://www.gov.br/anp", "frequency": "weekly"},
     "MX": {"name": "Mexico", "region": "Americas", "currency": "MXN", "fx_pair": "USD/MXN", "fuels": ["petrol", "diesel", "lpg"], "source": "https://www.cre.gob.mx", "frequency": "weekly"},
-    "UK": {"name": "United Kingdom", "region": "Europe", "currency": "GBP", "fx_pair": "USD/GBP", "fuels": ["petrol", "diesel", "heating_oil", "lpg"], "source": "https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics", "frequency": "weekly"},
+    "UK": {"name": "United Kingdom", "region": "Europe", "currency": "GBP", "fx_pair": "USD/GBP", "fuels": ["petrol", "diesel"], "source": "https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics", "frequency": "weekly", "verified": "2026-08-25"},
     "DE": {"name": "Germany", "region": "Europe", "currency": "EUR", "fx_pair": "USD/EUR", "fuels": ["petrol", "diesel", "heating_oil", "natural_gas"], "source": "https://www.destatis.de", "frequency": "weekly"},
-    "FR": {"name": "France", "region": "Europe", "currency": "EUR", "fx_pair": "USD/EUR", "fuels": ["petrol", "diesel", "heating_oil", "lpg"], "source": "https://www.prix-carburants.gouv.fr", "frequency": "weekly"},
+    "FR": {"name": "France", "region": "Europe", "currency": "EUR", "fx_pair": "USD/EUR", "fuels": ["petrol", "diesel"], "source": "https://donnees.roulez-eco.fr/opendata/instantane", "frequency": "real-time", "verified": "2026-09-26"},
     "IT": {"name": "Italy", "region": "Europe", "currency": "EUR", "fx_pair": "USD/EUR", "fuels": ["petrol", "diesel", "lpg", "natural_gas"], "source": "https://dgsaie.mise.gov.it", "frequency": "weekly"},
     "NL": {"name": "Netherlands", "region": "Europe", "currency": "EUR", "fx_pair": "USD/EUR", "fuels": ["petrol", "diesel", "lpg", "natural_gas"], "source": "https://www.cbs.nl", "frequency": "weekly"},
     "NO": {"name": "Norway", "region": "Europe", "currency": "NOK", "fx_pair": "USD/NOK", "fuels": ["petrol", "diesel", "heating_oil"], "source": "https://www.norskpetroleum.no", "frequency": "weekly"},
