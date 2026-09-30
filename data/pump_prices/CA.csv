@@ -21,3 +21,4 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-09-29 20:22:14,CA,petrol,1.738,CAD,CAD/litre,2026-08-01,https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810000101
 2026-09-30 00:22:13,CA,petrol,1.738,CAD,CAD/litre,2026-08-01,https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810000101
 2026-09-30 04:22:15,CA,petrol,1.738,CAD,CAD/litre,2026-08-01,https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810000101
+2026-09-30 08:22:13,CA,petrol,1.738,CAD,CAD/litre,2026-08-01,https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810000101
