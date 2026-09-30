@@ -57,3 +57,5 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-09-30 12:22:11,FR,petrol,2.168,EUR,EUR/litre,2026-09-30,https://www.prix-carburants.gouv.fr
 2026-09-30 16:22:11,FR,diesel,2.387,EUR,EUR/litre,2026-09-30,https://www.prix-carburants.gouv.fr
 2026-09-30 16:22:11,FR,petrol,2.167,EUR,EUR/litre,2026-09-30,https://www.prix-carburants.gouv.fr
+2026-09-30 20:22:11,FR,diesel,2.388,EUR,EUR/litre,2026-09-30,https://www.prix-carburants.gouv.fr
+2026-09-30 20:22:11,FR,petrol,2.169,EUR,EUR/litre,2026-09-30,https://www.prix-carburants.gouv.fr
