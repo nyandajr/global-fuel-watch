@@ -115,3 +115,5 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-10-06 00:23:39,NO,diesel,21.48,NOK,NOK/litre,2026-08-01,https://www.ssb.no/en/statbank/table/09654
 2026-10-06 04:22:45,NO,petrol,19.42,NOK,NOK/litre,2026-08-01,https://www.ssb.no/en/statbank/table/09654
 2026-10-06 04:22:45,NO,diesel,21.48,NOK,NOK/litre,2026-08-01,https://www.ssb.no/en/statbank/table/09654
+2026-10-06 08:22:53,NO,petrol,19.42,NOK,NOK/litre,2026-08-01,https://www.ssb.no/en/statbank/table/09654
+2026-10-06 08:22:53,NO,diesel,21.48,NOK,NOK/litre,2026-08-01,https://www.ssb.no/en/statbank/table/09654
