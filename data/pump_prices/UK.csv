@@ -119,3 +119,5 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-10-05 16:22:03,UK,diesel,1.9758000000000002,GBP,GBP/litre,2026-09-28,https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics
 2026-10-05 20:22:02,UK,petrol,1.7346000000000001,GBP,GBP/litre,2026-09-28,https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics
 2026-10-05 20:22:02,UK,diesel,1.9758000000000002,GBP,GBP/litre,2026-09-28,https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics
+2026-10-06 00:22:03,UK,petrol,1.7346000000000001,GBP,GBP/litre,2026-09-28,https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics
+2026-10-06 00:22:03,UK,diesel,1.9758000000000002,GBP,GBP/litre,2026-09-28,https://www.gov.uk/government/statistical-data-sets/oil-and-petroleum-products-weekly-statistics
