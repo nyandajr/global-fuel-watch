@@ -320,3 +320,6 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-10-14 08:22:43,IT,petrol,2.091,EUR,EUR/litre,2026-10-13,https://www.mimit.gov.it/it/open-data/elenco-open-data/carburanti-prezzi-praticati-e-anagrafica-degli-impianti
 2026-10-14 08:22:43,IT,diesel,2.305,EUR,EUR/litre,2026-10-13,https://www.mimit.gov.it/it/open-data/elenco-open-data/carburanti-prezzi-praticati-e-anagrafica-degli-impianti
 2026-10-14 08:22:43,IT,lpg,0.779,EUR,EUR/litre,2026-10-13,https://www.mimit.gov.it/it/open-data/elenco-open-data/carburanti-prezzi-praticati-e-anagrafica-degli-impianti
+2026-10-14 12:22:43,IT,petrol,2.091,EUR,EUR/litre,2026-10-13,https://www.mimit.gov.it/it/open-data/elenco-open-data/carburanti-prezzi-praticati-e-anagrafica-degli-impianti
+2026-10-14 12:22:43,IT,diesel,2.305,EUR,EUR/litre,2026-10-13,https://www.mimit.gov.it/it/open-data/elenco-open-data/carburanti-prezzi-praticati-e-anagrafica-degli-impianti
+2026-10-14 12:22:43,IT,lpg,0.779,EUR,EUR/litre,2026-10-13,https://www.mimit.gov.it/it/open-data/elenco-open-data/carburanti-prezzi-praticati-e-anagrafica-degli-impianti
