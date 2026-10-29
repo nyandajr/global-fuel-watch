@@ -379,3 +379,5 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-10-29 12:23:00,JP,diesel,159.7,JPY,JPY/litre,2026-10-26,https://www.enecho.meti.go.jp/statistics/petroleum_and_lpgas/pl007/results.html
 2026-10-29 16:23:00,JP,petrol,170.1,JPY,JPY/litre,2026-10-26,https://www.enecho.meti.go.jp/statistics/petroleum_and_lpgas/pl007/results.html
 2026-10-29 16:23:00,JP,diesel,159.7,JPY,JPY/litre,2026-10-26,https://www.enecho.meti.go.jp/statistics/petroleum_and_lpgas/pl007/results.html
+2026-10-29 20:23:03,JP,petrol,170.1,JPY,JPY/litre,2026-10-26,https://www.enecho.meti.go.jp/statistics/petroleum_and_lpgas/pl007/results.html
+2026-10-29 20:23:03,JP,diesel,159.7,JPY,JPY/litre,2026-10-26,https://www.enecho.meti.go.jp/statistics/petroleum_and_lpgas/pl007/results.html
