@@ -421,3 +421,5 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-11-03 12:22:08,US,diesel,6.352,USD,USD/gallon,2026-10-26,https://www.eia.gov/petroleum/gasdiesel/
 2026-11-03 16:22:08,US,petrol,3.996,USD,USD/gallon,2026-11-02,https://www.eia.gov/petroleum/gasdiesel/
 2026-11-03 16:22:08,US,diesel,6.292,USD,USD/gallon,2026-11-02,https://www.eia.gov/petroleum/gasdiesel/
+2026-11-03 20:22:17,US,petrol,3.996,USD,USD/gallon,2026-11-02,https://www.eia.gov/petroleum/gasdiesel/
+2026-11-03 20:22:17,US,diesel,6.292,USD,USD/gallon,2026-11-02,https://www.eia.gov/petroleum/gasdiesel/
