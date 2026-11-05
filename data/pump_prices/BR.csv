@@ -431,3 +431,5 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-11-05 08:22:36,BR,diesel,7.089,BRL,BRL/litre,2026-10-30,https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos
 2026-11-05 12:22:35,BR,petrol,6.472,BRL,BRL/litre,2026-10-30,https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos
 2026-11-05 12:22:35,BR,diesel,7.089,BRL,BRL/litre,2026-10-30,https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos
+2026-11-05 16:22:40,BR,petrol,6.472,BRL,BRL/litre,2026-10-30,https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos
+2026-11-05 16:22:40,BR,diesel,7.089,BRL,BRL/litre,2026-10-30,https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos
