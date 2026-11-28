@@ -675,3 +675,5 @@ timestamp,country,fuel_type,price,currency,unit,date,source
 2026-11-27 20:22:42,MX,diesel,26.949,MXN,MXN/litre,2026-11-27,https://publicacionexterna.azurewebsites.net/publicaciones/prices
 2026-11-28 00:22:39,MX,petrol,23.681,MXN,MXN/litre,2026-11-28,https://publicacionexterna.azurewebsites.net/publicaciones/prices
 2026-11-28 00:22:39,MX,diesel,26.946,MXN,MXN/litre,2026-11-28,https://publicacionexterna.azurewebsites.net/publicaciones/prices
+2026-11-28 04:22:37,MX,petrol,23.681,MXN,MXN/litre,2026-11-28,https://publicacionexterna.azurewebsites.net/publicaciones/prices
+2026-11-28 04:22:37,MX,diesel,26.946,MXN,MXN/litre,2026-11-28,https://publicacionexterna.azurewebsites.net/publicaciones/prices
